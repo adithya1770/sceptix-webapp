@@ -6,6 +6,7 @@ app=Flask(__name__)
 
 @app.route("/",methods=['POST','GET'])
 def home():
+    comments,nam="",""
     name,feed="",""
     if request.method=="POST":
         name=request.form['name']
@@ -15,9 +16,14 @@ def home():
         q="INSERT INTO feedback VALUES('{}','{}')".format(name,feed)
         cur.execute(q)
         mydb.commit()
+        q1="SELECT * from FEEDBACK;"
+        cur.execute(q1)
+        comments=cur.fetchall()
+        for i in comments:
+                nam=i[0]
+                comments=i[1]
         cur.close()
-
-    return render_template("buttons.html")
+    return render_template("buttons.html",comments=comments,nam=nam)
 
 @app.route("/multi",methods=["POST","GET"])
 def multi():
