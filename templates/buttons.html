@@ -2,31 +2,34 @@
     <head>
         <title>Home</title>
     </head>
+    <link rel="icon"
+     type="image/png"
+     href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0MMxsDKMxQb9VuGtn5wWfQ5i6HPJz8jUQ2w&usqp=CAU">
 <style>
     div{
         display:center;
-        
+
     }
     .styler{
         width:150px;
-        height:200px;
+        height:240px;
         text-align:center;
-        background-image:linear-gradient(blue,limegreen);
+        background-color: grey;
     }
     body{
-        background-image: linear-gradient(rgb(255, 119, 0),rgb(60, 60, 215));
+        background-image: url("https://www.wlu.ca/programs/science/graduate/mathematics-msc/assets/images/math-msc-landing.jpg");
     }
     h2{
         text-decoration: underline;
         font-family: monospace;
     }
     button{
-        background-color: aqua;
+        background-color: whitesmoke;
         font-family: monospace;
+
     }
     footer{
-        border:solid;
-        background-color: rgb(34, 34, 187);
+        background-image:linear-gradient(grey,blue);
     }
     h3{
         height:72px;
@@ -41,16 +44,24 @@
         height:40px;
         width:40px;
     }
+    video{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
 </style>
 <body>
-    <h1 style="font-family: monospace;padding: 40px;border:solid;text-align:center;background-color: rgb(255, 128, 0);"><big>OpenMath</big></h1>
+    <h1 style="font-family: monospace;padding: 40px;font-size:75px;text-align:center;background-image: linear-gradient(blue,grey);"><big>OpenMath</big></h1>
     <center>
-        <div style="width: 500px;height: 90px;background-color: rgb(255, 0, 0);border: dashed">
-    <h4 style="font-family: monospace;"><i><big>Rules to write a matrix</big></i></h4>
-    <p style="font-size: large;font-family: monospace;"><i><b>write matrix like this --> [[1,2],[3,4]]</b></i></p>
+        <h4 style="font-family:monospace;width: 300px;height: 100px;background-color:grey;float:left;text-align: center;font-size: 25px"><big><i>OpenMath is an open source math problem solver!</h4>
+        <div style="width: 300px;height: 100px;background-color:grey;float:right;">
+    <h4 style="font-family: monospace"><i><big>Rules to write a matrix</big></i></h4>
+    <p style="font-size: large;font-family: monospace"><i><b>write matrix like this --> [[1,2],[3,4]]</b></i></p>
+    <iframe width="360" height="150" src="https://www.youtube.com/embed/82MX3oTAcRk?si=4VJoHIc4Pzy0ayaZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top: 600px;left: 0;"></iframe>
+    <iframe width="360" height="150" src="https://www.youtube.com/embed/0oGJTQCy4cQ?si=wAR0Fim4DrgyW-Zy?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top: 600px;right: 0;"></iframe>
         </div>
         <br>
-    <div class="styler" style="border:solid">
+    <div class="styler">
         <br>
     <div><button><a href="/deter">Determinant</a></button></div>
         <br>
@@ -65,17 +76,22 @@
         <br>
     </div>
     </center>
+    <br>
     <center>
-    <h2><i>Enter your feedback</i></h2>
-    <form action="/" method="post">
-        <div style="width:210px;height:120px;background-image:linear-gradient(blue,limegreen);border:solid;">
+        <p style="color:whitesmoke;text-decoration: underline;font-family: monospace;"><b><i>Graph of sin(x)</i></b></p>
+    <iframe src="https://www.desmos.com/calculator/cqcublw1q5?embed" width="200" height="200" style="border: 1px solid #ccc" frameborder=0></iframe>
+    </center>
+    <center>
+    <h2 style="color:whitesmoke"><i>Enter your feedback</i></h2>
+    <form action="/home" method="post">
+        <div style="width:210px;height:120px;background-color:grey">
         <div style="font-family: monospace;">
         <label for="name"><b><big>Name</big></b></label></div>
         <input type="search" id="name" name="name" value="name"></input>
         <div style="font-family: monospace;">
         <label for="feedback"><b><big>Feedback</big></b></label></div>
         <input type="search" id="feed" name="feed" value="feedback"></input>
-        <div><input type="submit"></div>
+        <br><div><input type="submit"></div>
         </div>
     </form>
     <br>
@@ -84,6 +100,6 @@
         <p style="font-size: large;font-family: monospace;"><b>adithyaps929@gmail.com</p>
         </center>
     </footer>
-    <center><h3><img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg"></img><div>{{ nam }} says {{ comments }}</h3>
+    <center><h3 style="background-color:grey"><img src="https://banner2.cleanpng.com/20180328/kbw/kisspng-pi-day-symbol-mathematics-clip-art-math-5abc129dd36b31.171413721522274973866.jpg"></img><div>{{ nam }} says {{ comments }}</h3>
 </body>
 </html>
