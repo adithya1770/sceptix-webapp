@@ -20,10 +20,16 @@ def auth():
         mydb=pymysql.connect(host='adithya69.mysql.pythonanywhere-services.com',user='adithya69',password='mnadi123',database='adithya69$openmath')
         cur=mydb.cursor()
         if bool(sign_n) and bool(sign_p):
-            q="insert into creds values('{}','{}')".format(sign_n,sign_p)
+            q="select * from creds;"
             cur.execute(q)
-            mydb.commit()
-            return "<h1><big><center>Sign Up Successful, Credentials stored in database, Return to Authorisation Page to login</center></big></h1>"
+            credential=cur.fetchall()
+            if (sign_n,sign_p) not in credential:
+                q="insert into creds values('{}','{}')".format(sign_n,sign_p)
+                cur.execute(q)
+                mydb.commit()
+                return "<h1><big><center>Sign Up Successful, Credentials stored in database, Return to Authorisation Page to login</center></big></h1>"
+            else:
+                return "<h1><center>Account Already there</center></h1>"
         else:
             q="select * from creds;"
             cur.execute(q)
