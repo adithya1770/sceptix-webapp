@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Number Generator</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            div{
+                width:500px;
+                height:400px;
+                font-family: monospace;
+                background-color: burlywood;
+                font-size: 30px;
+                border-radius: 15px;
+                box-shadow:5px 5px black;
+            }
+            input{
+                font-size: 32px;
+                font-family: monospace;
+            }
+            body{
+                background-color: blanchedalmond;
+            }
+            h1{
+                font-family: monospace;
+                font-size: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+        <div>
+        <form action="/num" method="post">
+            <br>
+            <b>Enter starting number</b><br><input type="text" id="start" name="start"><br>
+            <b><br>Enter last number</b><br><input type="text" id="end" name="end"><br>
+            <br>
+            <input type="submit" value="Generate" style="background-color: bisque;">
+        </form>
+        </div>
+        <h1>{{ Rand_no }}</h1>
+        </center>
+</body>

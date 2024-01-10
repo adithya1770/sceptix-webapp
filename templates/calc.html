@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            input{
+                text-decoration:underline;
+                font-size:25px;
+                font-family:monospace;
+            }
+            label{
+                font-size: 25px;
+                font-style: oblique;
+                
+            }
+            p{
+                font-size: 25px;
+                font-family: monospace;
+            }
+            button{
+                text-decoration:underline;
+                font-size:25px;
+                font-family:monospace;
+            }
+            body{
+                background-image:linear-gradient(black,gray);
+            }
+            @keyframes normal {
+                from{color:red}
+                to{color:chartreuse}
+            }
+            h1{
+                font-size: 60px;
+                font-family: monospace;
+                color:white
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+        <h1>Calculator</h1>
+        </center>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+        <form action="/calc" method="post">
+            <div style="font-family:monospace ;height:200px ;width:300px; background-image: linear-gradient(#45e3ff,#b338d5);border-radius:5px">
+            <label for="exp">Enter your expression</label>
+            <br>
+            <br>
+            <input type="text" name="exp" id="exp" maxlength="50">
+            <p>{{ result }}</p>
+            </div>
+            <br>
+            <span>
+            <input type="submit" value="Evaluate" style="text-decoration: none;">
+            <button type="reset" style="text-decoration: none;">Reset Console</button>
+            </span>
+        </form>
+        </center>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+            <footer style="background-color: whitesmoke;width:auto;height:65px;border-radius:25px">
+                <div style="font-size: large;font-family: monospace;"><b>Content owned by OpenMath&trade;</div>
+                <div style="font-size: large;font-family: monospace;"><b>If any bugs found, report to - adithyaps929@gmail.com</div>
+                    <div style="font-size: large;font-family: monospace;"><a href="/home" style="color:red;text-decoration: none;animation-name: normal;animation-duration: 2s;animation-iteration-count: infinite;">HOME</div>
+        </center>
+    </body>
+</html>
