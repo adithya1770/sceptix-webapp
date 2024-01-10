@@ -2,14 +2,52 @@
 <html>
     <head>
         <title>Rank</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <style>
+            input{
+                height:300px;
+                width:250px
+            }
+            label{
+                font-size: 35px;
+                font-family: monospace;
+                text-decoration: underline;
+            }
+            p{
+                height: px;
+                width:600px;
+                background-color: white;
+                border:solid;
+                border-color: limegreen;
+                font-family: monospace;
+                font-size: 35px;
+            }
+            @keyframes normal {
+                from{color:red}
+                to{color:chartreuse}
+            }
+        </style>
     </head>
-<body>
+<body style="background-image:linear-gradient(red,yellow);background-repeat: no-repeat;background-attachment: fixed;">
+    <center>
 <form action="/rank" method="post">
-<label for="mat1">mat1</label>
+<label for="mat1"><b>Enter your Matrix to find rank</b></label>
+<br>
+<br>
 <input type="text" id="mat1" name="mat1"></input>
 <input type="submit">
 </form> 
-<p> {{ result }}</p>
-    
+</center>
+<center>
+<p> Rank of given matrix is {{ result }}</p>
+</center>
+<br>
+<center>
+<footer style="background-color: whitesmoke;width:auto;height:65px;border-radius:25px">
+    <div style="font-size: large;font-family: monospace;"><b>Content owned by OpenMath&trade;</div>
+    <div style="font-size: large;font-family: monospace;"><b>If any bugs found, report to - adithyaps929@gmail.com</div>
+        <div style="font-size: large;font-family: monospace;"><a href="/home" style="color:red;text-decoration: none;animation-name: normal;animation-duration: 2s;animation-iteration-count: infinite;">HOME</div>
+    </center>
+</footer>
 </body>
 </html>
