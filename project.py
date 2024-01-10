@@ -1,217 +1,215 @@
-from flask import Flask,render_template,request,redirect,url_for
-import numpy as np
-import pymysql
-from flask_bcrypt import Bcrypt
-import random
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <link rel="icon"
+     type="image/png"
+     href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0MMxsDKMxQb9VuGtn5wWfQ5i6HPJz8jUQ2w&usqp=CAU">
+<style>
+    div{
+        display:center;
 
-app=Flask(__name__)
-bcrypt=Bcrypt(app)
+    }
+    .styler{
+        width:150px;
+        height:240px;
+        text-align:center;
+        background-color: grey;
+    }
+    body{
+        background-color:black;
+    }
+    h2{
+        text-decoration: underline;
+        font-family: monospace;
+    }
+    button{
+        background-color: whitesmoke;
+        font-family: monospace;
+    }
+    h3{
+        height:72px;
+        width:700px;
+        border-color:black;
+        border:solid;
+        background-color: beige;
+        font-family: monospace;
+        text-align:center;
+    }
+    img{
+        height:40px;
+        width:40px;
+    }
+    video{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    @keyframes learn {
+        from{background-image:linear-gradient(blue,yellow);}
+        to{background-image: linear-gradient(orange,red);}
 
-@app.route("/",methods=['POST','GET'])
-def auth():
-    n,p="",""
-    sign_n,sign_p="",""
-    credential=""
-    if request.method=="POST":
-        n=request.form['n']
-        p=request.form['p']
-        sign_n=request.form['sign_n']
-        sign_p=request.form['sign_p']
-        mydb=pymysql.connect(host='adithya69.mysql.pythonanywhere-services.com',user='adithya69',password='mnadi123',database='adithya69$openmath')
-        cur=mydb.cursor()
-        if bool(sign_n) and bool(sign_p):
-            q="insert into creds values('{}','{}')".format(sign_n,sign_p)
-            cur.execute(q)
-            mydb.commit()
-            return "<h1><big><center>Sign Up Successful, Credentials stored in database, Return to Authorisation Page to login</center></big></h1>"
-        else:
-            q="select * from creds;"
-            cur.execute(q)
-            credential=cur.fetchall()
-            pw_hash = bcrypt.generate_password_hash(p).decode('utf-8')
-            user_hash = bcrypt.generate_password_hash(n).decode('utf-8')
-        if (n,p) in credential:
-                if bcrypt.check_password_hash(pw_hash,p)==True and bcrypt.check_password_hash(user_hash,n)==True:
-                    q1="insert into login values('{}')".format(n)
-                    cur.execute(q1)
-                    mydb.commit()
-                    return redirect(url_for('home',user_hash=user_hash,pw_hash=pw_hash))
-        else:
-            return render_template("errorinpsw.html")
-    return render_template('auth.html',n=n,p=p)
+    }
+    label{
+        font-style: normal;
+    }
+    @keyframes box {
+        from{background-image: linear-gradient(white,grey);}
+        to{background-image: linear-gradient(white,lightblue)}
+    }
+    p{
+        font-family:monospace;
+        font-style: normal;
+    }
+    em{
+        animation: normal;
+        animation-duration: 1s;
+        animation-name: news;
+        animation-iteration-count: infinite;
+        font-family:monospace;
+        font-style: normal;
+        font-style: oblique;
+    }
+    @keyframes link {
+        from{color: red;}
+        to{color: green;}
 
-@app.route("/num",methods=['POST','GET'])
-def num():
-    try:
-        Rand_no=0
-        if request.method=="POST":
-            Rand_no+=random.randrange(int(request.form['start']),int(request.form['end']))
-        return render_template("numgen.html",Rand_no=Rand_no)
-    except:
-        return render_template("error.html")
+    }
+</style>
+<body>
+    <h1 style="font-family: monospace;padding-top:px;font-size:75px;text-align:center;color: white;text-shadow:2px 2px 2px white"><big>OpenMath</big></h1>
+    <center>
+        <h4 style="font-family:monospace;color: black;background-color: white;"><big><i>OpenMath is an open source math problem solver!</h4>
+        <br>
+    <div style="height:150px;width:300px;background-image:linear-gradient(gray,white);border-radius: 20px;">
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,grey);border-radius:15px"><a href="/rules" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Rules</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,indigo);border-radius:15px"><a href="/num" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Number Generator</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,blue);border-radius:15px"><a href="/quiz" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Quiz</h4></a></div>
+    </div>
+    <div style="height:320px;width:300px;background-image: linear-gradient(gray,white);border-radius: 20px;">
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,red);border-radius:15px"><a href="/deter" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Determinant</h4></a></div>
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,yellow);border-radius:15px"><a href="/inverse" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Inverse</h4></a></div>
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,purple);border-radius:15px"><a href="/rank" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Rank</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,green);border-radius:15px"><a href="/multi" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Multiply</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,orange);border-radius:15px"><a href="/calc" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Calculator</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,indigo);border-radius:15px"><a href="/eign" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">EigenValue</h4></a></div>
+    </div>
+    <br>
+        <br>
 
-@app.route("/eign",methods=['GET','POST'])
-def eign():
-        r=""
-        evalue=""
-        evect=""
-        if request.method=="POST":
-             r=np.array(eval(request.form['e']))
-             evalue,evect=np.linalg.eig(r)
-        return render_template("eigen.html",evalue=evalue,r=r,evect=evect)
-
-@app.route("/learn",methods=['POST','GET'])
-def learn():
-    return render_template("vids.html")
-
-@app.route("/rules",methods=['POST','GET'])
-def rules():
-    return render_template("rules.html")
-
-@app.route("/info",methods=['POST','GET'])
-def info():
-    return render_template("terms.html")
-
-@app.route("/forgot",methods=['POST','GET'])
-def forgot():
-    use=""
-    data=""
-    r=""
-    single_data=""
-    if request.method=='POST':
-        use=request.form['use']
-        mydb=pymysql.connect(host='adithya69.mysql.pythonanywhere-services.com',user='adithya69',password='mnadi123',database='adithya69$openmath')
-        cur=mydb.cursor()
-        q="SELECT password FROM creds WHERE user=%s;"
-        r=(use,)
-        cur.execute(q,r)
-        mydb.commit()
-        single_data=cur.fetchone()
-        data=single_data[0]
-    return render_template("forgotpassword.html",data=data,use=use,r=r)
-
-@app.route("/calc",methods=['POST','GET'])
-def calc():
-    exp1=""
-    result=""
-    try:
-        if request.method=="POST":
-            exp1=request.form['exp']
-            result=eval(exp1)
-        return render_template("calc.html",exp1=exp1,result=result)
-    except:
-        return render_template("error.html")
-
-@app.route("/home",methods=['POST','GET'])
-def home():
-    comments,nam="",""
-    name,feed="",""
-    count=""
-    nu=""
-    count=""
-    name_User=""
-    name_1=""
-    mydb=pymysql.connect(host='adithya69.mysql.pythonanywhere-services.com',user='adithya69',password='mnadi123',database='adithya69$openmath')
-    cur=mydb.cursor()
-    if request.method=="POST":
-        name=request.form['name']
-        feed=request.form['feed']
-        q="INSERT INTO feedback VALUES('{}','{}')".format(name,feed)
-        cur.execute(q)
-        mydb.commit()
-        q1="SELECT * from feedback;"
-        cur.execute(q1)
-        comments=cur.fetchall()
-        for i in comments:
-                nam=i[0]
-                comments=i[1]
-    cur.execute("SELECT COUNT(*) FROM login;")
-    mydb.commit()
-    nu=cur.fetchone()
-    count=nu[0]
-    cur.execute("select * from login;")
-    mydb.commit()
-    name_1=cur.fetchall()
-    length=len(name_1)
-    name_User=name_1[length-1][0]
-    cur.close()
-    return render_template("buttons.html",comments=comments,nam=nam,count=count,nu=nu,name_User=name_User,name_1=name_1)
-
-@app.route("/quiz",methods=['POST','GET'])
-def quiz():
-    marks=0
-    a=list()
-    if request.method=="POST":
-        q1_ans=request.form['yes']
-        q2_ans=request.form['ans']
-        q3_ans=request.form['idn']
-        q1a=q1_ans
-        q2a=q2_ans
-        q3a=q3_ans
-        if q1a in ["no","No"]:
-            marks+=1
-        else:
-            marks-=1
-        if q2a in ["-2"]:
-            marks+=1
-        else:
-            marks-=1
-        if q3a in ["1"]:
-            marks+=1
-        else:
-            marks-=1
-    return render_template("quiz.html",marks=marks)
-
-@app.route("/multi",methods=["POST","GET"])
-def multi():
-    mat1=""
-    mat2=""
-    result=""
-    try:
-        if request.method=="POST":
-            mat1=np.array(eval(request.form['mat1']))
-            mat2=np.array(eval(request.form['mat2']))
-            result=np.dot(mat1,mat2)
-        return render_template("multi.html",result=result)
-    except:
-        return render_template('error.html')
-
-@app.route("/rank",methods=["POST","GET"])
-def rank():
-    mat=""
-    result=""
-    try:
-        if request.method=="POST":
-            mat=np.array(eval(request.form['mat1']))
-            result=np.linalg.matrix_rank(mat)
-        return render_template("rank.html",result=result)
-    except:
-        return render_template("error.html")
-
-@app.route("/inverse",methods=["POST","GET"])
-def inverse():
-    mat=""
-    result=""
-    try:
-        if request.method=="POST":
-            mat=np.array(eval(request.form['mat1']))
-            result=np.linalg.inv(mat)
-        return render_template("inverse.html",matrix=mat,result=result)
-    except:
-        return render_template("error.html")
-
-@app.route("/deter",methods=["POST","GET"])
-def deter():
-    mat=""
-    det=""
-    result=""
-    try:
-        if request.method=="POST":
-            mat=np.array(eval(request.form['mat1']))
-            result=np.linalg.det(mat)
-        return render_template("front.html",matrix=mat,result=result)
-    except:
-        return render_template("error.html")
-
-if __name__=="__main__":
-    app.run(debug=True)
+    </center>
+    <br>
+   <div style="width:250px;height:515px;background-image:linear-gradient(white,grey);top:250px;right: 50px;position: absolute;border-radius: 25px;">
+        <details style="font-family: monospace;padding-left: 10px;padding-top: 12px;">
+            <summary>What is a matrix?</summary>
+            <p>In mathematics, a matrix (pl.: matrices) is a rectangular array or table of numbers, symbols, or expressions, arranged in rows and columns, which is used to represent a mathematical object or a property of such an object.</p>
+            </details>
+            <hr>
+            <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                <summary>What is rank?</summary>
+                <p>This corresponds to the maximal number of linearly independent columns of A.</p>
+                </details>
+                <hr>
+                <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                    <summary>What is multiplication?</summary>
+                    <p>matrix multiplication is a binary operation that produces a matrix from two matrices</p>
+                    </details>
+                    <hr>
+                    <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                        <summary>What is inverse?</summary>
+                        <p>another matrix that, when multiplied by the given matrix, yields the multiplicative identity</p>
+                        </details>
+                        <hr>
+                        <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                            <summary>What is determinant?</summary>
+                            <p>the determinant is a scalar value that is a function of the entries of a square matrix</p>
+                            </details>
+                        <hr>
+                        <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                            <summary>How to learn?</summary>
+                            <p>watch khan academy or MIT-OCW</p>
+                            </details>
+                            <hr>
+                            <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                                <summary>How is quiz evaluvated?</summary>
+                                <p>+1 for correct, -1 for wrong </p>
+                                </details>
+                                <hr>
+                                <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                                    <summary>getting an error?</summary>
+                                    <p>report this bug at the email provided in the footer</p>
+                                    </details>
+                                    <hr>
+                                    <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                                        <summary>will my data be stored?</summary>
+                                        <p>Yes xD</p>
+                                        </details>
+                                        <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="font-family: monospace;">
+    <p style="color:aliceblue;font-family: monospace;">Number of Visits</p>
+    <svg height="250" width="250">
+        <circle cx="75" cy="75" r="50" stroke="grey" stroke-width="4px" fill="black">
+            <h1 style="color:white;font-size: 50px;top:700px;left:45px;position:absolute">{{ count }}</h1>
+        </svg>
+    </svg>
+    </div>
+    </div>
+    <center>
+       <div style="width:200px;height:325px;background-color:thistle;border-radius: 20px;box-shadow:5px 5px grey">
+        <br>
+        <hr>
+        <p><b>Mathematical Tools</b> <em>Click on the text</em></p>
+        <hr>
+        <em><a href="https://www.desmos.com/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">Desmos - Grapher</a></em>
+        <p><a href="https://www.wolframalpha.com/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">WolframAlpha</a></em>
+        <p><a href="https://cocalc.com/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">CoCalc</a></em>
+        <p><a href="https://www.sagemath.org/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">SageMath</a></em>
+        <p><a href="https://cadabra.science/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">Cadabra</a></em>
+            <p><a href="https://scipy.org/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">SciPy</a></em>
+        </div>
+    <br>
+    <div style="top: 250px;left: 10px;position: absolute;">
+    <h2 style="color:whitesmoke;"><i>Enter your feedback</i></h2>
+    <form action="/home" method="post">
+        <div style="width:300px;height:300px;background-image: linear-gradient(white,grey);border-radius: 25px;">
+        <div style="font-family: monospace;padding-top: 60px;">
+        <label for="name" style="color:black"><b><big>Name</big></b></label></div>
+        <input type="search" id="name" name="name" value="name"></input>
+        <div style="font-family: monospace;padding-top: 15px;">
+        <label for="feedback"  style="color:black"><b><big>Feedback</big></b></label></div>
+        <input type="search" id="feed" name="feed" value="feedback"></input>
+        <br>
+        <br><div><input type="submit"></div>
+        </div>
+    </form>
+    </div>
+    <br>
+    <div style="font-style:normal;width:300px;height:120px;background-color: whitesmoke;top: 1000px;left: 25px;position: absolute;font-family: monospace;background-image: linear-gradient(grey,darkgrey);border-radius: 25px;">
+        <h1 style="color:black"><a href="/learn" style="text-decoration: none;color:black;">learn</a></h1>
+        <p><i>click on learn for resources</i></p>
+    </div>
+    <div style="width:400px;height:100px;background-image:linear-gradient(navy,cadetblue);top:875px;left:25px;position: absolute;border-radius: 20px;box-shadow:5px 5px white">
+    <h1 style="color:white;font-size: 30px;font-family: monospace;">Welcome, {{name_User}}</h1>
+        <p><a href="/reset" style="color:white">RESET PASSWORD</a> | <a href="/delete" style="color:white">DELETE ACCOUNT</a></p>
+    </div>
+    <footer style="background-color: whitesmoke;width:auto;height:90px;border-radius:25px">
+        <p style="font-size: large;font-family: monospace;"><b>Content owned by OpenMath&trade; </p>
+        <p style="font-size: large;font-family: monospace;"><b>If any bugs found, report to - adithyaps929@gmail.com</p>
+            <p style="font-size: large;font-family: monospace;font-style: normal;"><b><a href="/" style="text-decoration: none;color:tomato">LOG OUT</p>
+            <div style="position: absolute;top:650px;left:135px;width:50px;height:185px;background-color: white;border-radius: 20px;">
+            <p style="font-family: monospace;"><a href="https://github.com/adithya1770/sceptix-webapp"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"></a></p>
+            <p style="font-family: monospace;"><a href="https://help.pythonanywhere.com/pages/UsingMySQL/"><img src="https://media.licdn.com/dms/image/C560BAQG1piYYzHl9PA/company-logo_200_200/0/1630604235978/pythonanywhere_logo?e=2147483647&v=beta&t=DcgpA_MQpRW3qugmFcYUsePDW93k6AftDCVz64nAF5w"></a></p>
+            <p style="font-family: monospace;"><a href="https://www.mysql.com/"><img src="https://logowik.com/content/uploads/images/mysql8604.logowik.com.webp"></a></p>
+            </div>
+        </center>
+    </footer>
+    <center><h3 style="animation-name: box;animation-duration: 1s;animation-iteration-count: infinite;border:dashed;border-radius: 25px;"><img src="https://thumbs.dreamstime.com/b/user-icon-trendy-flat-style-isolated-grey-background-user-symbol-user-icon-trendy-flat-style-isolated-grey-background-123663211.jpg"></img><div style="font-style: normal;">{{ nam }} says {{ comments }}</h3>
+</body>
+</html>
