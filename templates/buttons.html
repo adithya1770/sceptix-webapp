@@ -17,7 +17,7 @@
         background-color: grey;
     }
     body{
-        background-image: url("https://www.wlu.ca/programs/science/graduate/mathematics-msc/assets/images/math-msc-landing.jpg");
+        background-color:black;
     }
     h2{
         text-decoration: underline;
@@ -26,10 +26,6 @@
     button{
         background-color: whitesmoke;
         font-family: monospace;
-
-    }
-    footer{
-        background-image:linear-gradient(grey,blue);
     }
     h3{
         height:72px;
@@ -49,57 +45,170 @@
         bottom: 0;
         right: 0;
     }
+    @keyframes learn {
+        from{background-image:linear-gradient(blue,yellow);}
+        to{background-image: linear-gradient(orange,red);}
+
+    }
+    label{
+        font-style: normal;
+    }
+    @keyframes box {
+        from{background-image: linear-gradient(white,grey);}
+        to{background-image: linear-gradient(white,lightblue)}
+    }
+    p{
+        font-family:monospace;
+        font-style: normal;
+    }
+    em{
+        animation: normal;
+        animation-duration: 1s;
+        animation-name: news;
+        animation-iteration-count: infinite;
+        font-family:monospace;
+        font-style: normal;
+        font-style: oblique;
+    }
+    @keyframes link {
+        from{color: red;}
+        to{color: green;}
+
+    }
 </style>
 <body>
-    <h1 style="font-family: monospace;padding: 40px;font-size:75px;text-align:center;background-image: linear-gradient(blue,grey);"><big>OpenMath</big></h1>
+    <h1 style="font-family: monospace;padding-top:px;font-size:75px;text-align:center;color: white;text-shadow:2px 2px 2px white"><big>OpenMath</big></h1>
     <center>
-        <h4 style="font-family:monospace;width: 300px;height: 100px;background-color:grey;float:left;text-align: center;font-size: 25px"><big><i>OpenMath is an open source math problem solver!</h4>
-        <div style="width: 300px;height: 100px;background-color:grey;float:right;">
-    <h4 style="font-family: monospace"><i><big>Rules to write a matrix</big></i></h4>
-    <p style="font-size: large;font-family: monospace"><i><b>write matrix like this --> [[1,2],[3,4]]</b></i></p>
-    <iframe width="360" height="150" src="https://www.youtube.com/embed/82MX3oTAcRk?si=4VJoHIc4Pzy0ayaZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top: 600px;left: 0;"></iframe>
-    <iframe width="360" height="150" src="https://www.youtube.com/embed/0oGJTQCy4cQ?si=wAR0Fim4DrgyW-Zy?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top: 600px;right: 0;"></iframe>
-        </div>
+        <h4 style="font-family:monospace;color: black;background-color: white;"><big><i>OpenMath is an open source math problem solver!</h4>
         <br>
-    <div class="styler">
-        <br>
-    <div><button><a href="/deter">Determinant</a></button></div>
-        <br>
-    <div><button><a href="/multi">Multiplication</a></button></div>
-        <br>
-    <div><button><a href="/inverse">Inverse</a></button></div>
-        <br>
-    <div><button><a href="/rank">Rank</a></button></div>
-        <br>
-    <div><button><a href="/quiz">Take a quiz</a></button></div>
-        <br>
-        <br>
+    <div style="height:150px;width:300px;background-image:linear-gradient(gray,white);border-radius: 20px;">
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,grey);border-radius:15px"><a href="/rules" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Rules</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,indigo);border-radius:15px"><a href="/num" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Number Generator</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,blue);border-radius:15px"><a href="/quiz" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Quiz</h4></a></div>
     </div>
+    <div style="height:320px;width:300px;background-image: linear-gradient(gray,white);border-radius: 20px;">
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,red);border-radius:15px"><a href="/deter" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Determinant</h4></a></div>
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,yellow);border-radius:15px"><a href="/inverse" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Inverse</h4></a></div>
+    <div style="width:250px;height:30px;background-image: linear-gradient(white,purple);border-radius:15px"><a href="/rank" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Rank</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,green);border-radius:15px"><a href="/multi" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Multiply</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,orange);border-radius:15px"><a href="/calc" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">Calculator</h4></a></div>
+    <div style="width:250px;height:30px;background-image:linear-gradient(white,indigo);border-radius:15px"><a href="/eign" style="font-style:normal;color:black;text-decoration: none;"><h4 style="font-family: monospace;font-size:20px;">EigenValue</h4></a></div>
+    </div>
+    <br>
+        <br>
+
     </center>
     <br>
+   <div style="width:250px;height:515px;background-image:linear-gradient(white,grey);top:250px;right: 50px;position: absolute;border-radius: 25px;">
+        <details style="font-family: monospace;padding-left: 10px;padding-top: 12px;">
+            <summary>What is a matrix?</summary>
+            <p>In mathematics, a matrix (pl.: matrices) is a rectangular array or table of numbers, symbols, or expressions, arranged in rows and columns, which is used to represent a mathematical object or a property of such an object.</p>
+            </details>
+            <hr>
+            <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                <summary>What is rank?</summary>
+                <p>This corresponds to the maximal number of linearly independent columns of A.</p>
+                </details>
+                <hr>
+                <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                    <summary>What is multiplication?</summary>
+                    <p>matrix multiplication is a binary operation that produces a matrix from two matrices</p>
+                    </details>
+                    <hr>
+                    <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                        <summary>What is inverse?</summary>
+                        <p>another matrix that, when multiplied by the given matrix, yields the multiplicative identity</p>
+                        </details>
+                        <hr>
+                        <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                            <summary>What is determinant?</summary>
+                            <p>the determinant is a scalar value that is a function of the entries of a square matrix</p>
+                            </details>
+                        <hr>
+                        <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                            <summary>How to learn?</summary>
+                            <p>watch khan academy or MIT-OCW</p>
+                            </details>
+                            <hr>
+                            <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                                <summary>How is quiz evaluvated?</summary>
+                                <p>+1 for correct, -1 for wrong </p>
+                                </details>
+                                <hr>
+                                <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                                    <summary>getting an error?</summary>
+                                    <p>report this bug at the email provided in the footer</p>
+                                    </details>
+                                    <hr>
+                                    <details style="font-family: monospace;padding-left: 10px;padding-top: 15px;">
+                                        <summary>will my data be stored?</summary>
+                                        <p>Yes xD</p>
+                                        </details>
+                                        <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="font-family: monospace;">
+    <p style="color:aliceblue;font-family: monospace;">Number of Visits</p>
+    <svg height="250" width="250">
+        <circle cx="75" cy="75" r="50" stroke="grey" stroke-width="4px" fill="black">
+            <h1 style="color:white;font-size: 50px;top:710px;left:40px;position:absolute">{{ count }}</h1>
+        </svg>
+    </svg>
+    </div>
+    </div>
     <center>
-        <p style="color:whitesmoke;text-decoration: underline;font-family: monospace;"><b><i>Graph of sin(x)</i></b></p>
-    <iframe src="https://www.desmos.com/calculator/cqcublw1q5?embed" width="200" height="200" style="border: 1px solid #ccc" frameborder=0></iframe>
-    </center>
-    <center>
-    <h2 style="color:whitesmoke"><i>Enter your feedback</i></h2>
+       <div style="width:200px;height:325px;background-color:thistle;border-radius: 20px;box-shadow:5px 5px grey">
+        <br>
+        <hr>
+        <p><b>Mathematical Tools</b> <em>Click on the text</em></p>
+        <hr>
+        <em><a href="https://www.desmos.com/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">Desmos - Grapher</a></em>
+        <p><a href="https://www.wolframalpha.com/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">WolframAlpha</a></em>
+        <p><a href="https://cocalc.com/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">CoCalc</a></em>
+        <p><a href="https://www.sagemath.org/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">SageMath</a></em>
+        <p><a href="https://cadabra.science/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">Cadabra</a></em>
+            <p><a href="https://scipy.org/" style="text-decoration: none;font-style: normal;color: black;animation-name: link;animation-duration: 1s;animation-iteration-count: infinite;height: 10px;width:30px;background-color: azure;border-radius: 5px;">SciPy</a></em>
+        </div>
+    <br>
+    <div style="top: 250px;left: 10px;position: absolute;">
+    <h2 style="color:whitesmoke;"><i>Enter your feedback</i></h2>
     <form action="/home" method="post">
-        <div style="width:210px;height:120px;background-color:grey">
-        <div style="font-family: monospace;">
-        <label for="name"><b><big>Name</big></b></label></div>
+        <div style="width:300px;height:300px;background-image: linear-gradient(white,grey);border-radius: 25px;">
+        <div style="font-family: monospace;padding-top: 60px;">
+        <label for="name" style="color:black"><b><big>Name</big></b></label></div>
         <input type="search" id="name" name="name" value="name"></input>
-        <div style="font-family: monospace;">
-        <label for="feedback"><b><big>Feedback</big></b></label></div>
+        <div style="font-family: monospace;padding-top: 15px;">
+        <label for="feedback"  style="color:black"><b><big>Feedback</big></b></label></div>
         <input type="search" id="feed" name="feed" value="feedback"></input>
+        <br>
         <br><div><input type="submit"></div>
         </div>
     </form>
+    </div>
     <br>
-    <footer>
-        <p style="font-size: large;font-family: monospace;"><b>Content owned by Adithya</p>
-        <p style="font-size: large;font-family: monospace;"><b>adithyaps929@gmail.com</p>
+    <div style="font-style:normal;width:300px;height:120px;background-color: whitesmoke;top: 975px;left: 25px;position: absolute;font-family: monospace;background-image: linear-gradient(grey,darkgrey);border-radius: 25px;">
+        <h1 style="color:black"><a href="/learn" style="text-decoration: none;color:black;">learn</a></h1>
+        <p><i>click on learn for resources</i></p>
+    </div>
+    <div style="width:300px;height:70px;background-image:linear-gradient(navy,cadetblue);top:875px;left:25px;position: absolute;border-radius: 20px;box-shadow:5px 5px white">
+    <h1 style="color:white;font-size: 30px;font-family: monospace;">Welcome, {{name_User}}</h1>
+    </div>
+    <footer style="background-color: whitesmoke;width:auto;height:90px;border-radius:25px">
+        <p style="font-size: large;font-family: monospace;"><b>Content owned by OpenMath&trade; </p>
+        <p style="font-size: large;font-family: monospace;"><b>If any bugs found, report to - adithyaps929@gmail.com</p>
+            <p style="font-size: large;font-family: monospace;font-style: normal;"><b><a href="/" style="text-decoration: none;color:tomato">LOG OUT</p>
+            <div style="position: absolute;top:650px;left:135px;width:50px;height:185px;background-color: white;border-radius: 20px;">
+            <p style="font-family: monospace;"><a href="https://github.com/adithya1770/sceptix-webapp"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"></a></p>
+            <p style="font-family: monospace;"><a href="https://help.pythonanywhere.com/pages/UsingMySQL/"><img src="https://media.licdn.com/dms/image/C560BAQG1piYYzHl9PA/company-logo_200_200/0/1630604235978/pythonanywhere_logo?e=2147483647&v=beta&t=DcgpA_MQpRW3qugmFcYUsePDW93k6AftDCVz64nAF5w"></a></p>
+            <p style="font-family: monospace;"><a href="https://www.mysql.com/"><img src="https://logowik.com/content/uploads/images/mysql8604.logowik.com.webp"></a></p>
+            </div>
         </center>
     </footer>
-    <center><h3 style="background-color:grey"><img src="https://banner2.cleanpng.com/20180328/kbw/kisspng-pi-day-symbol-mathematics-clip-art-math-5abc129dd36b31.171413721522274973866.jpg"></img><div>{{ nam }} says {{ comments }}</h3>
+    <center><h3 style="animation-name: box;animation-duration: 1s;animation-iteration-count: infinite;border:dashed;border-radius: 25px;"><img src="https://thumbs.dreamstime.com/b/user-icon-trendy-flat-style-isolated-grey-background-user-symbol-user-icon-trendy-flat-style-isolated-grey-background-123663211.jpg"></img><div style="font-style: normal;">{{ nam }} says {{ comments }}</h3>
 </body>
 </html>
