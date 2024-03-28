@@ -1,7 +1,7 @@
 # OpenMath
 
 OpenMath is a webapp which primarily does math calculations especially matrix manipulations.
-built on python, mysql and html+css
+Built on python, mysql and html+css
 
 # How To Run
 
