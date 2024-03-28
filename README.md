@@ -10,3 +10,9 @@ OpenMath is a webapp which primarily does math calculations especially matrix ma
   <li>Click on the IP+port address</li>
 </ul>
 
+# SnapShots
+
+<img src="webasset2/Capture.PNG">
+<img src="webasset2/Capture1.PNG">
+<img src="webasset2/Capture2.PNG">
+<img src="webasset2/Capture3.PNG">
